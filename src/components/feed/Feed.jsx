@@ -1,22 +1,23 @@
 import "./feed.css";
 import Share from "../share/Share";
 import Post from "../post/Post";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
+import { AuthContext } from "../../context/AuthContext";
 
 export default function Feed({ username }) {
   const [post, setPosts] = useState([]);
+  const { user } = useContext(AuthContext);
 
   useEffect(() => {
     const fetchPosts = async () => {
-      // Change this end point it should be dynamic user ID...
       const response = username
         ? await axios.get(`/posts/profile/${username}`)
-        : await axios.get("/posts/feed/6218b45121b9d06c4f267630");
+        : await axios.get(`/posts/feed/${user._id}`);
       setPosts(response.data);
     };
     fetchPosts();
-  }, [username]);
+  }, [username, user._id]);
 
   return (
     <div className="feed">

@@ -43,7 +43,7 @@ export default function Login() {
               className="loginInput"
               ref={password}
             />
-            <button disabled={isFetching} className="loginButton">
+            <button type="submit" disabled={isFetching} className="loginButton">
               {isFetching ? (
                 <CircularProgress size="20px" color="inherit" />
               ) : (
