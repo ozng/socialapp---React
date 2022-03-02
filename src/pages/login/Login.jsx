@@ -17,8 +17,6 @@ export default function Login() {
     e.preventDefault();
   };
 
-  console.log(user);
-
   return (
     <div className="login">
       <div className="loginWrapper">

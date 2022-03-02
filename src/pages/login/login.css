@@ -1,5 +1,4 @@
 .login {
-  width: 100vh;
   height: 100vh;
   background-color: #f0f2f5;
   display: flex;
@@ -33,6 +32,7 @@
 }
 
 .loginBox {
+  width: 400px;
   height: 300px;
   padding: 20px;
   background-color: white;
