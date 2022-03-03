@@ -31,12 +31,20 @@ export default function Profile() {
             <div className="profileCover">
               <img
                 className="profileCoverImg"
-                src={user.coverPicture || `${PF}nocover.png`}
+                src={
+                  user.coverPicture
+                    ? PF + user.coverPicture
+                    : `${PF}nocover.png`
+                }
                 alt=""
               />
               <img
                 className="profileUserImg"
-                src={user.profilePicture || `${PF}noavatar.png`}
+                src={
+                  user.profilePicture
+                    ? PF + user.profilePicture
+                    : `${PF}noavatar.png`
+                }
                 alt=""
               />
             </div>
