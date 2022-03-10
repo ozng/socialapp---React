@@ -14,7 +14,7 @@ export default function Rightbar({ user }) {
 
   const [friends, setFriends] = useState([]);
   const [isFollow, setIsFollow] = useState(
-    currentUser.following.includes(currentUser._id)
+    currentUser?.following?.includes(currentUser?._id)
   );
 
   useEffect(() => {
@@ -31,19 +31,19 @@ export default function Rightbar({ user }) {
   }, [user]);
 
   useEffect(() => {
-    setIsFollow(currentUser.following.includes(currentUser._id));
+    setIsFollow(currentUser?.following?.includes(currentUser?._id));
   }, [user?._id]);
 
   const handleFollow = async () => {
     try {
       if (isFollow) {
         await axios.put(`/users/${user._id}/unfollow`, {
-          userId: currentUser._id,
+          userId: currentUser?._id,
         });
         dispatch({ type: "UNFOLLOW", payload: user._id });
       } else {
         await axios.put(`/users/${user._id}/follow`, {
-          userId: currentUser._id,
+          userId: currentUser?._id,
         });
         dispatch({ type: "FOLLOW", payload: user._id });
       }
@@ -76,7 +76,7 @@ export default function Rightbar({ user }) {
   const ProfileRightbar = () => {
     return (
       <>
-        {user.username !== currentUser.username && (
+        {user.username !== currentUser?.username && (
           <button className="rightbarFollowBtn" onClick={handleFollow}>
             {isFollow ? "Unfollow" : "Follow"}
             {isFollow ? <Remove /> : <Add />}

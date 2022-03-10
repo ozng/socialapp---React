@@ -4,7 +4,7 @@ export default function chatOnline() {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
   return (
-    <div className="chatOnline">
+    <div key={"1"} className="chatOnline">
       <div className="chatOnlineFriend">
         <div className="chatOnlineImgContainer">
           <img className="chatOnlineImg" src={PF + "./user/4.jpg"} alt="" />
